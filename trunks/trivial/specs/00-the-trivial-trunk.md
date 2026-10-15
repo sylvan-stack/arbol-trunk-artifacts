@@ -38,7 +38,7 @@ The *route* is what Arbol chose for the message: the Driver, the Subscription, t
 5. When the run is over ([below](#stopping-the-run)), it ends the Exchange with the run's outcome (RCT-2).
 
 ```sh
-arbol-trunk --root golden trivial -v 1 run --detach --exchange 2d4f6a8c-… --request /…/start.json   # arbol-root starts the Trivial Trunk
+arbol-trunk --root sapling trivial -v 1 run --detach --exchange 2d4f6a8c-… --request /…/start.json   # arbol-root starts the Trivial Trunk
 arbol-claude-driver run --control --request /…/exchanges/2d4f6a8c-…/run-1.json                      # which starts the one run
 ```
 
@@ -145,7 +145,7 @@ The record and the row of the Exchange keep the route as it was handed, `{}` whe
 
 ```sh
 cd ~/repos/shop && arbol-trunk run "What does build.sh do?"
-# {"accepted":true,"duplicate":false,"root":"golden",…,"trunk":"trivial","build":"1"}
+# {"accepted":true,"duplicate":false,"root":"sapling",…,"trunk":"trivial","build":"1"}
 # {"n":1,"event":{…,"type":"started","continuity":"fresh","subscriptionId":"anthropic","model":"opus","effort":"high",…}}
 ```
 
