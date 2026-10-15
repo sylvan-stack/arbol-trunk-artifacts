@@ -1,6 +1,6 @@
 # Arbol Trunk: Catalog
 
-No chapters yet.
+- [`trunks/trivial/specs/`](trunks/trivial/specs/README.md): the Trivial Trunk (`TRV`), code name `trivial`: one Driver run for each Chat Exchange, the default Trunk of every Root.
 
 ## Conventions
 
