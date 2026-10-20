@@ -1,17 +1,17 @@
 {
-  "workspace": "https://linear.app/sylvan-stack",
+  "workspace": "https://linear.app/amorphius",
   "team": "Sylvan Stack",
   "project": {
     "name": "Arbol",
-    "url": "https://linear.app/sylvan-stack/project/arbol-e2185acd2538",
-    "id": "P-SYL-1"
+    "url": "https://linear.app/amorphius/project/arbol-07c500bc9d0a",
+    "id": "P-SYL-4"
   },
   "note": "Local files are the originals. Linear documents are copies republished from them.",
   "documents": {
     "trunks/trivial/specs/00-the-trivial-trunk.md": {
       "title": "Trivial Trunk · 00 The Trivial Trunk",
-      "id": "83c15fc4-a9ad-4a2f-80de-fb2c45f972e3",
-      "url": "https://linear.app/sylvan-stack/document/trivial-trunk-00-the-trivial-trunk-6cb33bb612de",
+      "id": "f817d305-25c0-4c0b-a2c2-658abd9190da",
+      "url": "https://linear.app/amorphius/document/trivial-trunk-00-the-trivial-trunk-69cef8f11711",
       "published": "2026-10-15"
     }
   }
