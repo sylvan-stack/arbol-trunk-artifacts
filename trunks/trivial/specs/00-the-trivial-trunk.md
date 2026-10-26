@@ -1,7 +1,7 @@
 ---
 role: authored
 spec: TRV-0
-status: accepted
+status: implemented
 ---
 # Trivial Trunk · 00 The Trivial Trunk
 
@@ -284,6 +284,17 @@ arbol-trunk:trunks/trivial/tests/test_time_scale.py
 }
 ```
 
+<!-- sources:
+arbol-trunk:trunks/trivial/scripts/build_support.py
+arbol-trunk:trunks/trivial/scripts/package_build.py#package
+arbol-trunk:trunks/trivial/scripts/package_build.py#copy_dependencies
+arbol-trunk:trunks/trivial/scripts/python-distribution.json
+arbol-trunk:trunks/trivial/bin/arbol-trunk-trivial
+arbol-trunk:trunks/trivial/arbol-build.json
+arbol-trunk:trunks/trivial/tests/test_package.py#Packaging
+arbol-trunk:trunks/trivial/tests/test_build_support.py
+-->
+
 ### Its checks
 
 A Build counts as working only when all three checks have passed (BLD-0, [TRV-D12](#decisions)).
@@ -310,6 +321,22 @@ The live check works in five steps:
 
 The token count is that of a message with tools on through the Claude Driver on Haiku, recorded on 6 October 2026: five times the 3,635 input tokens of a Driver's own build message, which runs without tools, and more when the owner's skills and MCP servers come with the run (DRV-D27). The live check leaves one small saved conversation in the test Subscription's home. A build while that Subscription is signed out or its allowance is used up fails, like a Driver's (BLD-0), and the last working Build stays in use.
 
+<!-- sources:
+arbol-trunk:trunks/trivial/scripts/check_build.py#verify
+arbol-trunk:trunks/trivial/scripts/check_build.py#program_policy
+arbol-trunk:trunks/trivial/scripts/check_build.py#runtime_probe
+arbol-trunk:trunks/trivial/scripts/check_build.py#unit
+arbol-trunk:trunks/trivial/scripts/check_build.py#live_fixture
+arbol-trunk:trunks/trivial/scripts/check_build.py#driver_bridge
+arbol-trunk:trunks/trivial/scripts/check_build.py#live
+arbol-trunk:trunks/trivial/tests/test_check_build.py#PackageChecks
+arbol-trunk:trunks/trivial/tests/test_build_commands.py#BuildCommands
+arbol-trunk:trunks/trivial/tests/test_live_build.py#LiveCheck
+arbol-root:contract/conformance/rct_conformance/home.py#ScenarioHome
+-->
+
+Qualification on 26 October 2026 (SYL-180): installed Build `3` passed unit, the complete contract-1 and live, and `arbol-trunk list` chose it with a private Root record. The live check recorded `{"model":"claude-haiku-5-5","costUsd":0.0059016,"inputTokens":29499,"outputTokens":4,"reasoningTokens":0,"cachedInputTokens":0}`. With an empty Driver test state, Build `4` passed the offline checks and failed live before inference; the working Build stayed chosen.
+
 ### What may be added later
 
 The Trivial Trunk changes only for one of three reasons ([TRV-D11](#decisions)):
@@ -328,15 +355,15 @@ Anything else, however small, goes into another Trunk: a title, a system prompt,
 | TRV-0.2 | start no second run after any outcome, `rate_limited` and a refused route included, and take no route other than the one it was handed | Dropped | contract: R11 (SYL-177); unit: `WholeExchange.test_a_refusal_can_be_the_only_event_and_no_other_route_is_tried` and `WholeExchange.test_a_failed_run_keeps_the_drivers_error_whole` in `trunks/trivial/tests/test_run.py` of `arbol-trunk` |
 | TRV-0.3 | start the run through the launcher `arbol-<driver>-driver` found in a folder of the search path, for the route's `driver` and else for the `driver` of its settings file (TRV-D7), without `-v`, as `run --control --request` with the request file `run-1.json` in the Exchange's folder, and refuse `run` with `invalid_input`, naming the file and its key, when it is handed no Driver and its settings file names none | New | unit, in `trunks/trivial/tests/`: `Launcher`, `Run.test_it_starts_run_control_request_without_v_and_reads_every_event_line`, `Start.test_the_default_driver_comes_from_the_settings_file`, `Start.test_no_driver_handed_and_none_in_the_settings_file_is_refused_naming_the_file_and_key` (SYL-171), `NoDriver`, from the command line to the answer (SYL-172); contract: R1 (SYL-171) |
 | TRV-0.4 | check nothing of the route itself, and end an Exchange whose Driver refuses the route as failed with the Driver's error, and one whose launcher is not found in a folder of the search path, a `driver` with a `/` in it included, as failed with `driver_failed`, naming the launcher | New | contract: R11 (SYL-177); unit: `WholeExchange.test_a_driver_that_is_not_on_the_search_path_fails_the_exchange_with_driver_failed`, `WholeExchange.test_a_launchers_refusal_is_kept_in_the_failure_message` and `WholeExchange.test_a_driver_that_ends_without_finished_fails_it_and_its_run_is_interrupted` (SYL-177) |
-| TRV-0.5 | write the run's request with `runId` `<exchange>.1`, `subscriptionId`, `model` and `effort` only as far as the route names them, the working folder as `workingDirectory`, `tools` `all`, the history, the message as `input` and the chat's identifier as `chatSessionId`, and with no other field | New | unit, in `trunks/trivial/tests/`: `Request`, `WholeExchange.test_a_plain_answer_from_the_message_to_its_end` (SYL-171); live: SYL-180 |
+| TRV-0.5 | write the run's request with `runId` `<exchange>.1`, `subscriptionId`, `model` and `effort` only as far as the route names them, the working folder as `workingDirectory`, `tools` `all`, the history, the message as `input` and the chat's identifier as `chatSessionId`, and with no other field | New | unit: `Request` and `WholeExchange.test_a_plain_answer_from_the_message_to_its_end`; live: `scripts/check_build.py live` on test-anthropic / haiku (SYL-180) |
 | TRV-0.6 | send as history every earlier Exchange of the chat that was not replaced, whatever its end, in the order of their numbers, each with its message, each block of its answer exactly as saved and each tool call the agent made itself with its result, in the order of their positions, in the form of DRV-2, leaving out the calls of sub-agents | Changed | unit in `trunks/trivial/tests/`: `History`, `WholeExchange.test_the_second_message_of_a_chat_sends_the_first_as_its_history` (SYL-171), `ReplacementHistory` (SYL-175); contract: R14 (SYL-175) |
 | TRV-0.7 | read that history in the transaction that accepts the message, after it has marked the Exchange that a message sent again replaces | New | unit: `ReplacingAMessage` and `ReplacementHistory` in `trunks/trivial/tests/test_replacement.py`; contract: R14, including concurrent replacement and next-message acceptance (SYL-175) |
 | TRV-0.8 | make no small call and no classification, also when it is handed a small-call route, and write no title | Dropped | unit, in `trunks/trivial/tests/`: `WholeExchange.test_with_a_small_call_route_no_small_call_is_made_and_the_route_stays_as_handed` (SYL-171); also contract: R19 (SYL-171) |
 | TRV-0.9 | add nothing of its own to what the agent gets: no system prompt, no file read for the agent, no shortened history, and read no settings file but its own, `~/.arbol/arbol-trunk/trivial.json`, for the default Driver | Dropped | unit, in `trunks/trivial/tests/`: `Request.test_nothing_of_its_own`, `Start.test_a_start_reads_no_settings_file_but_its_own`, `WholeExchange.test_a_whole_start_reads_no_settings_file_but_its_own` (SYL-171) |
 | TRV-0.10 | count the silence of RCT-2.21 as 16 minutes, the Driver's default idle limit of 15 minutes and one minute more, with `CLOCK_UPTIME_RAW`, whenever no tool call and no question is open, also while a command the agent left in the background runs | New | contract: R18 (SYL-178); unit: `SilentRuns` in `trunks/trivial/tests/test_loop.py`, including a moved awake clock and a simulated hour asleep, and `TimeScaledWaits` in `test_time_scale.py` of `arbol-trunk` |
 | TRV-0.11 | stop its run, whatever the reason, with a stop line on the run's control input, end the Driver's process with SIGKILL when it has not ended 16 seconds after that line or after its `finished`, whichever came first, counted with `CLOCK_UPTIME_RAW` and checked in each round of its loop, and end the Exchange only once the Driver's process has ended | New | unit, in `trunks/trivial/tests/`: `Loop`, `StoppingTheRun`, `WholeExchange.test_a_stop_line_while_a_tool_call_runs_cancels_the_exchange_and_saves_the_call_as_interrupted` (SYL-173); also contract: R8 (SYL-173) |
-| TRV-0.12 | be typed Python 3.14 on the interpreter its Build carries, use only the standard library and psycopg 3 at a pinned version, and share no code with another Trunk | New | unit |
-| TRV-0.13 | be built as the component `arbol-trunk/trivial` from `trunks/trivial/` with the entry `bin/arbol-trunk-trivial` and `"rootContracts": [1]`, and count as working only when its unit checks, the Root Contract's suite for each version it lists, and one real message through the Claude Driver (TRV-D12) have passed | New | unit, live |
+| TRV-0.12 | be typed Python 3.14 on the interpreter its Build carries, use only the standard library and psycopg 3 at a pinned version, and share no code with another Trunk | New | unit: `scripts/check_build.py` (`verify`, `program_policy`, `runtime_probe`), `PackageChecks`, `Packaging`, `BuildMetadata`, `BuildCommands` and `CheckoutScript`; Ruff and strict mypy (SYL-180) |
+| TRV-0.13 | be built as the component `arbol-trunk/trivial` from `trunks/trivial/` with the entry `bin/arbol-trunk-trivial` and `"rootContracts": [1]`, and count as working only when its unit checks, the Root Contract's suite for each version it lists, and one real message through the Claude Driver (TRV-D12) have passed | New | unit: `scripts/check_build.py unit`; contract: the complete `contract-1` (18 scenarios with R16 after each); live: `scripts/check_build.py live`; installed working Build 3, chosen by `arbol-trunk list`, and empty-state Build 4 failed at live (SYL-180) |
 
 Beyond the Root Contract, these requirements carry what [ARC-0](../../../../arbol/architecture/00-components-and-boundaries.md#what-any-trunk-must-offer) leaves to each Trunk's own specification, "how a Trunk prepares context, whether it makes titles and how it retries": the context in TRV-0.5, TRV-0.6 and TRV-0.9, titles in TRV-0.8, retries in TRV-0.2. They also carry the parts of five accepted architecture requirements, which wait for these specifications, that the Root Contract leaves to the Trunk: of ARC-0.18, "with the route it was handed" (TRV-0.1, TRV-0.2); of ARC-0.24, what a Trunk does with a title (TRV-0.8); of ARC-2.10, that no other route is taken in any case (TRV-0.2); of ARC-3.4, which idle limit counts and how the run is ended (TRV-0.10, TRV-0.11); and of ARC-3.10, that time while the Mac sleeps counts towards none of these limits (TRV-0.10, TRV-0.11). ARC-0.3 is met by TRV-0.12.
 
