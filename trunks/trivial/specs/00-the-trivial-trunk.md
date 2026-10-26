@@ -220,6 +220,16 @@ The loop never waits for the database. It saves the rows that are due in a task 
 
 For example, while the agent runs `make` for two hours, every round finds no output, raises the heartbeat, and comes round again within a second. While the database server restarts in the middle of an answer, a stop line still reaches the Driver within a second.
 
+<!-- sources:
+arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/life.py#SignsOfLife
+arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/watch.py#Watch
+arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/run.py#run_exchange
+arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/run.py#drive
+arbol-trunk:trunks/trivial/tests/test_life.py
+arbol-trunk:trunks/trivial/tests/test_watch.py
+arbol-trunk:trunks/trivial/tests/test_time_scale.py
+-->
+
 ### Its program and its Build
 
 | | |
