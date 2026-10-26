@@ -54,6 +54,14 @@ Historical evidence (frozen version 1; ordinary locators, not Source Refs):
 
 - `arbol_deprecated_v1:product-spec/03-turn-execution.md#Failures and what the Leather Bag sees`
 
+<!-- sources:
+arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/claim.py#root_lock
+arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/claim.py#claim_folder
+arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/accept.py#accept_message
+arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/database.py#PostgresConnection.accept
+arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/settle.py#settle_exchange
+-->
+
 ### Driver capability and migration checks
 
 After acceptance and before the single run, query the selected launcher for `info`, supported families and Subscription records. Accept Driver contracts 1 and 2 only, require the returned Driver identity and any explicitly selected Subscription family to be available, and pass model/effort choices unchanged for the Driver to validate. A failure ends the accepted Exchange as `driver_failed`, with no prompt and no route fallback. Each metadata query is bounded to five seconds and 256 KiB; a stop cancels preparation before a run begins. Query processes are not additional inference runs.
@@ -106,6 +114,13 @@ Historical evidence (frozen version 1; ordinary locators, not Source Refs):
 
 - `arbol_deprecated_v1:product-spec/07-agent-context.md#What the agent sees of the conversation`
 - `arbol_deprecated_v1:product-spec/03-turn-execution.md#Retry and Continue from failure point`
+
+<!-- sources:
+arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/database.py#PostgresConnection.accept
+arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/history.py#make_history
+arbol-trunk:trunks/trivial/tests/test_replacement.py#ReplacementHistory
+arbol-root:contract/conformance/rct_conformance/scenarios/r14.py
+-->
 
 ### The agent's own conversation
 
@@ -284,8 +299,8 @@ Anything else, however small, goes into another Trunk: a title, a system prompt,
 | TRV-0.3 | start the run through the launcher `arbol-<driver>-driver` found in a folder of the search path, for the route's `driver` and else for the `driver` of its settings file (TRV-D7), without `-v`, as `run --control --request` with the request file `run-1.json` in the Exchange's folder, and refuse `run` with `invalid_input`, naming the file and its key, when it is handed no Driver and its settings file names none | New | unit, in `trunks/trivial/tests/`: `Launcher`, `Run.test_it_starts_run_control_request_without_v_and_reads_every_event_line`, `Start.test_the_default_driver_comes_from_the_settings_file`, `Start.test_no_driver_handed_and_none_in_the_settings_file_is_refused_naming_the_file_and_key` (SYL-171), `NoDriver`, from the command line to the answer (SYL-172); contract: R1 (SYL-171) |
 | TRV-0.4 | check nothing of the route itself, and end an Exchange whose Driver refuses the route as failed with the Driver's error, and one whose launcher is not found in a folder of the search path, a `driver` with a `/` in it included, as failed with `driver_failed`, naming the launcher | New | unit, contract |
 | TRV-0.5 | write the run's request with `runId` `<exchange>.1`, `subscriptionId`, `model` and `effort` only as far as the route names them, the working folder as `workingDirectory`, `tools` `all`, the history, the message as `input` and the chat's identifier as `chatSessionId`, and with no other field | New | unit, in `trunks/trivial/tests/`: `Request`, `WholeExchange.test_a_plain_answer_from_the_message_to_its_end` (SYL-171); live: SYL-180 |
-| TRV-0.6 | send as history every earlier Exchange of the chat that was not replaced, whatever its end, in the order of their numbers, each with its message, each block of its answer exactly as saved and each tool call the agent made itself with its result, in the order of their positions, in the form of DRV-2, leaving out the calls of sub-agents | Changed | unit, in `trunks/trivial/tests/`: `History`, `WholeExchange.test_the_second_message_of_a_chat_sends_the_first_as_its_history` (SYL-171); contract: R14 comes with SYL-175 |
-| TRV-0.7 | read that history in the transaction that accepts the message, after it has marked the Exchange that a message sent again replaces | New | unit |
+| TRV-0.6 | send as history every earlier Exchange of the chat that was not replaced, whatever its end, in the order of their numbers, each with its message, each block of its answer exactly as saved and each tool call the agent made itself with its result, in the order of their positions, in the form of DRV-2, leaving out the calls of sub-agents | Changed | unit in `trunks/trivial/tests/`: `History`, `WholeExchange.test_the_second_message_of_a_chat_sends_the_first_as_its_history` (SYL-171), `ReplacementHistory` (SYL-175); contract: R14 (SYL-175) |
+| TRV-0.7 | read that history in the transaction that accepts the message, after it has marked the Exchange that a message sent again replaces | New | unit: `ReplacingAMessage` and `ReplacementHistory` in `trunks/trivial/tests/test_replacement.py`; contract: R14, including concurrent replacement and next-message acceptance (SYL-175) |
 | TRV-0.8 | make no small call and no classification, also when it is handed a small-call route, and write no title | Dropped | unit, in `trunks/trivial/tests/`: `WholeExchange.test_with_a_small_call_route_no_small_call_is_made_and_the_route_stays_as_handed` (SYL-171); also contract: R19 (SYL-171) |
 | TRV-0.9 | add nothing of its own to what the agent gets: no system prompt, no file read for the agent, no shortened history, and read no settings file but its own, `~/.arbol/arbol-trunk/trivial.json`, for the default Driver | Dropped | unit, in `trunks/trivial/tests/`: `Request.test_nothing_of_its_own`, `Start.test_a_start_reads_no_settings_file_but_its_own`, `WholeExchange.test_a_whole_start_reads_no_settings_file_but_its_own` (SYL-171) |
 | TRV-0.10 | count the silence of RCT-2.21 as 16 minutes, the Driver's default idle limit of 15 minutes and one minute more, with `CLOCK_UPTIME_RAW`, whenever no tool call and no question is open, also while a command the agent left in the background runs | New | unit, contract |
