@@ -60,6 +60,9 @@ arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/claim.py#claim_folder
 arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/accept.py#accept_message
 arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/database.py#PostgresConnection.accept
 arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/settle.py#settle_exchange
+arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/run.py#one_run
+arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/end.py#end_of_run
+arbol-root:contract/conformance/rct_conformance/scenarios/r11.py
 -->
 
 ### Driver capability and migration checks
@@ -150,6 +153,14 @@ For example, the second message above, sent on the same route as the first, star
 With no limits in the request, the run has the Driver's own: an idle limit of 15 minutes and no limit on the whole run ([DRV-4](../../../../arbol/driver-contract/04-errors-and-limits.md#time-limits-of-a-run)).
 
 The route's `driver` names the launcher: `claude` starts `arbol-claude-driver`, and in general `<driver>` starts `arbol-<driver>-driver`. The Trivial Trunk speaks version 1 of the Driver Contract. It names no `-v`, so the Driver's newest working Build runs, and the run's `started` event says which (DRV-2); this is right only while every working Build of a Driver implements version 1 ([ARC-1](../../../../arbol/architecture/01-roots.md#the-states-of-a-root-and-the-current-root)). It checks nothing of the route itself ([TRV-D6](#decisions)): a Driver refuses a Subscription, a model or an effort it cannot use before anything is sent, with a `finished` event that is the only event of its run (DRV-2), and the Exchange fails with that error. When the launcher refuses because the Driver has no working Build (BLD-0), or no folder of the search path holds the launcher, for example for a mistyped `--driver cluade`, no `finished` event comes, and the Exchange fails with `driver_failed`, whose message carries the launcher's refusal or names the launcher it looked for (RCT-2). The launcher is looked for only in those folders, so a `driver` with a `/` in it, such as `../x`, is never found and fails the same way.
+
+<!-- sources:
+arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/driver.py#find_launcher
+arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/driver.py#launcher_refusal
+arbol-trunk:trunks/trivial/src/arbol_trunk_trivial/driver.py#DriverRun
+arbol-trunk:trunks/trivial/tests/test_run.py#WholeExchange
+arbol-root:contract/conformance/rct_conformance/scenarios/r11.py
+-->
 
 ### A start without a route
 
@@ -305,9 +316,9 @@ Anything else, however small, goes into another Trunk: a title, a system prompt,
 | ID | The Trivial Trunk must… | Origin | Verified by |
 |---|---|---|---|
 | TRV-0.1 | make one Driver run for each Exchange, on the route it was handed, and none when a stop line came before the run started, and end the Exchange with that run's outcome, or with the cause of RCT-2 for which it stopped the run | Changed | contract: R1 (SYL-171), R8, a stop line before the run (SYL-173); also unit, in `trunks/trivial/tests/`: `WholeExchange.test_a_plain_answer_from_the_message_to_its_end` (SYL-171), `WholeExchange.test_after_a_stop_line_before_the_run_no_run_starts_and_the_exchange_is_cancelled` (SYL-173) |
-| TRV-0.2 | start no second run after any outcome, `rate_limited` and a refused route included, and take no route other than the one it was handed | Dropped | contract |
+| TRV-0.2 | start no second run after any outcome, `rate_limited` and a refused route included, and take no route other than the one it was handed | Dropped | contract: R11 (SYL-177); unit: `WholeExchange.test_a_refusal_can_be_the_only_event_and_no_other_route_is_tried` and `WholeExchange.test_a_failed_run_keeps_the_drivers_error_whole` in `trunks/trivial/tests/test_run.py` of `arbol-trunk` |
 | TRV-0.3 | start the run through the launcher `arbol-<driver>-driver` found in a folder of the search path, for the route's `driver` and else for the `driver` of its settings file (TRV-D7), without `-v`, as `run --control --request` with the request file `run-1.json` in the Exchange's folder, and refuse `run` with `invalid_input`, naming the file and its key, when it is handed no Driver and its settings file names none | New | unit, in `trunks/trivial/tests/`: `Launcher`, `Run.test_it_starts_run_control_request_without_v_and_reads_every_event_line`, `Start.test_the_default_driver_comes_from_the_settings_file`, `Start.test_no_driver_handed_and_none_in_the_settings_file_is_refused_naming_the_file_and_key` (SYL-171), `NoDriver`, from the command line to the answer (SYL-172); contract: R1 (SYL-171) |
-| TRV-0.4 | check nothing of the route itself, and end an Exchange whose Driver refuses the route as failed with the Driver's error, and one whose launcher is not found in a folder of the search path, a `driver` with a `/` in it included, as failed with `driver_failed`, naming the launcher | New | unit, contract |
+| TRV-0.4 | check nothing of the route itself, and end an Exchange whose Driver refuses the route as failed with the Driver's error, and one whose launcher is not found in a folder of the search path, a `driver` with a `/` in it included, as failed with `driver_failed`, naming the launcher | New | contract: R11 (SYL-177); unit: `WholeExchange.test_a_driver_that_is_not_on_the_search_path_fails_the_exchange_with_driver_failed`, `WholeExchange.test_a_launchers_refusal_is_kept_in_the_failure_message` and `WholeExchange.test_a_driver_that_ends_without_finished_fails_it_and_its_run_is_interrupted` (SYL-177) |
 | TRV-0.5 | write the run's request with `runId` `<exchange>.1`, `subscriptionId`, `model` and `effort` only as far as the route names them, the working folder as `workingDirectory`, `tools` `all`, the history, the message as `input` and the chat's identifier as `chatSessionId`, and with no other field | New | unit, in `trunks/trivial/tests/`: `Request`, `WholeExchange.test_a_plain_answer_from_the_message_to_its_end` (SYL-171); live: SYL-180 |
 | TRV-0.6 | send as history every earlier Exchange of the chat that was not replaced, whatever its end, in the order of their numbers, each with its message, each block of its answer exactly as saved and each tool call the agent made itself with its result, in the order of their positions, in the form of DRV-2, leaving out the calls of sub-agents | Changed | unit in `trunks/trivial/tests/`: `History`, `WholeExchange.test_the_second_message_of_a_chat_sends_the_first_as_its_history` (SYL-171), `ReplacementHistory` (SYL-175); contract: R14 (SYL-175) |
 | TRV-0.7 | read that history in the transaction that accepts the message, after it has marked the Exchange that a message sent again replaces | New | unit: `ReplacingAMessage` and `ReplacementHistory` in `trunks/trivial/tests/test_replacement.py`; contract: R14, including concurrent replacement and next-message acceptance (SYL-175) |
