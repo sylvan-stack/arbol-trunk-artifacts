@@ -21,3 +21,9 @@ Reason: TRV-D12: the Build's live check runs, asserts and reports an explicitly 
 
 Origins: TRV-D12, TRV-0.13, BLD-0.5 · Intention i-f96f0464 · 2026-11-11
 
+## driver_bridge
+
+Reason: TRV-0.13: the live check's Driver bridge passes USER, which claude needs to find its Keychain login
+
+Origins: TRV-0.13, BLD-0.5 · Intention i-aa61dfe9 · 2026-11-11
+
