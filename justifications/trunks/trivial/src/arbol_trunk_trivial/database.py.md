@@ -11,9 +11,9 @@ Origins: ARC-4.4, ARC-4.8 · Intention i-61a2dc12 · 2026-11-12
 
 ## postgres
 
-Reason: Require a live generation permit and verify the installed ledger in the actual acceptance transaction.
+Reason: Keep the accepted generation through row and final-save reconnects and close writer connections before releasing the file permit.
 
-Origins: ARC-4.4, ARC-4.8 · Intention i-61a2dc12 · 2026-11-12
+Origins: ARC-4.4 · Intention i-a25afbc4 · 2026-11-12
 
 ## <before conninfo>
 
@@ -59,9 +59,9 @@ Origins: ARC-4.1, ARC-4.3 · Intention i-bdc3ba5d · 2026-11-12
 
 ## installed_postgres
 
-Reason: Require a live generation permit and verify the installed ledger in the actual acceptance transaction.
+Reason: Keep the accepted generation through row and final-save reconnects and close writer connections before releasing the file permit.
 
-Origins: ARC-4.4, ARC-4.8 · Intention i-61a2dc12 · 2026-11-12
+Origins: ARC-4.4 · Intention i-a25afbc4 · 2026-11-12
 
 ## preflight
 
@@ -113,9 +113,9 @@ Origins: ARC-4.6 · Intention i-3db5eff8 · 2026-11-12
 
 ## PostgresConnection.end
 
-Reason: Verify the stored assignment and terminal result before removing its recoverable folder
+Reason: Keep the accepted generation through row and final-save reconnects and close writer connections before releasing the file permit.
 
-Origins: ARC-4.6 · Intention i-ffc21e70 · 2026-11-12
+Origins: ARC-4.4 · Intention i-a25afbc4 · 2026-11-12
 
 ## PostgresConnection.exchange_state
 
@@ -137,13 +137,25 @@ Origins: ARC-4.4, ARC-4.8 · Intention i-61a2dc12 · 2026-11-12
 
 ## PostgresConnection.admit
 
-Reason: Require a live generation permit and verify the installed ledger in the actual acceptance transaction.
+Reason: Keep the accepted generation through row and final-save reconnects and close writer connections before releasing the file permit.
 
-Origins: ARC-4.4, ARC-4.8 · Intention i-61a2dc12 · 2026-11-12
+Origins: ARC-4.4 · Intention i-a25afbc4 · 2026-11-12
 
 ## PostgresConnection.require_lease
 
 Reason: Require a live generation permit and verify the installed ledger in the actual acceptance transaction.
 
 Origins: ARC-4.4, ARC-4.8 · Intention i-61a2dc12 · 2026-11-12
+
+## PostgresConnection.save
+
+Reason: Keep the accepted generation through row and final-save reconnects and close writer connections before releasing the file permit.
+
+Origins: ARC-4.4 · Intention i-a25afbc4 · 2026-11-12
+
+## writer_connections
+
+Reason: Keep the accepted generation through row and final-save reconnects and close writer connections before releasing the file permit.
+
+Origins: ARC-4.4 · Intention i-a25afbc4 · 2026-11-12
 
