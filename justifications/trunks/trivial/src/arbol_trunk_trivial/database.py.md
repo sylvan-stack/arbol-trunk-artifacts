@@ -5,9 +5,9 @@ role: authored
 
 ## <before DatabaseUnavailable>
 
-Reason: Verify the installed schema before Trivial run or settlement effects and on the connections they use.
+Reason: Pass the installation home to Driver capability discovery after ASD-12 released run.py
 
-Origins: ARC-4.1, ARC-4.3 · Intention i-bdc3ba5d · 2026-11-12
+Origins: ARC-4.1, ARC-4.6 · Intention i-b77149ed · 2026-11-12
 
 ## postgres
 
@@ -59,9 +59,9 @@ Origins: ARC-4.1, ARC-4.3 · Intention i-bdc3ba5d · 2026-11-12
 
 ## installed_postgres
 
-Reason: Verify the installed schema before Trivial run or settlement effects and on the connections they use.
+Reason: Pass the installation home to Driver capability discovery after ASD-12 released run.py
 
-Origins: ARC-4.1, ARC-4.3 · Intention i-bdc3ba5d · 2026-11-12
+Origins: ARC-4.1, ARC-4.6 · Intention i-b77149ed · 2026-11-12
 
 ## preflight
 
@@ -74,4 +74,10 @@ Origins: ARC-4.1, ARC-4.3 · Intention i-bdc3ba5d · 2026-11-12
 Reason: Verify the installed schema before Trivial run or settlement effects and on the connections they use.
 
 Origins: ARC-4.1, ARC-4.3 · Intention i-bdc3ba5d · 2026-11-12
+
+## Connection
+
+Reason: Pass the installation home to Driver capability discovery after ASD-12 released run.py
+
+Origins: ARC-4.1, ARC-4.6 · Intention i-b77149ed · 2026-11-12
 
