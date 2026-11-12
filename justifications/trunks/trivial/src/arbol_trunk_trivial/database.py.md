@@ -81,3 +81,33 @@ Reason: Pass the installation home to Driver capability discovery after ASD-12 r
 
 Origins: ARC-4.1, ARC-4.6 · Intention i-b77149ed · 2026-11-12
 
+## PostgresConnection.accept
+
+Reason: Persist rootless UUID receipts and retain folders while acceptance is uncertain
+
+Origins: ARC-4.6 · Intention i-3db5eff8 · 2026-11-12
+
+## PostgresConnection.find_exchange
+
+Reason: Persist rootless UUID receipts and retain folders while acceptance is uncertain
+
+Origins: ARC-4.6 · Intention i-3db5eff8 · 2026-11-12
+
+## transaction
+
+Reason: Persist rootless UUID receipts and retain folders while acceptance is uncertain
+
+Origins: ARC-4.6 · Intention i-3db5eff8 · 2026-11-12
+
+## AcceptanceUncertain
+
+Reason: Persist rootless UUID receipts and retain folders while acceptance is uncertain
+
+Origins: ARC-4.6 · Intention i-3db5eff8 · 2026-11-12
+
+## PostgresConnection.lock_exchange
+
+Reason: Persist rootless UUID receipts and retain folders while acceptance is uncertain
+
+Origins: ARC-4.6 · Intention i-3db5eff8 · 2026-11-12
+
