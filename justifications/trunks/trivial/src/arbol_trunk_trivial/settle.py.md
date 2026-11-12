@@ -5,9 +5,9 @@ role: authored
 
 ## <before Settlement>
 
-Reason: Verify the stored assignment and terminal result before removing its recoverable folder
+Reason: Apply controlled admission at the direct settlement boundary before compatibility checks and keep it through persistence and cleanup.
 
-Origins: ARC-4.6 · Intention i-ffc21e70 · 2026-11-12
+Origins: ARC-4.4 · Intention i-97d8c861 · 2026-11-12
 
 ## _stored_state
 
@@ -23,9 +23,9 @@ Origins: ARC-4.6 · Intention i-ffc21e70 · 2026-11-12
 
 ## settle_exchange
 
-Reason: Verify the stored assignment and terminal result before removing its recoverable folder
+Reason: Apply controlled admission at the direct settlement boundary before compatibility checks and keep it through persistence and cleanup.
 
-Origins: ARC-4.6 · Intention i-ffc21e70 · 2026-11-12
+Origins: ARC-4.4 · Intention i-97d8c861 · 2026-11-12
 
 ## settlement_connect
 
@@ -38,4 +38,16 @@ Removed by Intention i-b77149ed · 2026-11-12
 Reason: Verify the stored assignment and terminal result before removing its recoverable folder
 
 Origins: ARC-4.6 · Intention i-ffc21e70 · 2026-11-12
+
+## settle_admitted
+
+Reason: Apply controlled admission at the direct settlement boundary before compatibility checks and keep it through persistence and cleanup.
+
+Origins: ARC-4.4 · Intention i-97d8c861 · 2026-11-12
+
+## settle_pending
+
+Reason: Apply controlled admission at the direct settlement boundary before compatibility checks and keep it through persistence and cleanup.
+
+Origins: ARC-4.4 · Intention i-97d8c861 · 2026-11-12
 
