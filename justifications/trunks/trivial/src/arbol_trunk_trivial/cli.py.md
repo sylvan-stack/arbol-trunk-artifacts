@@ -17,13 +17,13 @@ Removed by Intention i-b77149ed · 2026-11-12
 
 ## start
 
-Reason: Verify the stored assignment and terminal result before removing its recoverable folder
+Reason: Require a live generation permit and verify the installed ledger in the actual acceptance transaction.
 
-Origins: ARC-4.6 · Intention i-ffc21e70 · 2026-11-12
+Origins: ARC-4.4, ARC-4.8 · Intention i-61a2dc12 · 2026-11-12
 
 ## <before start>
 
-Reason: Persist rootless UUID receipts and retain folders while acceptance is uncertain
+Reason: Require a live generation permit and verify the installed ledger in the actual acceptance transaction.
 
-Origins: ARC-4.6 · Intention i-3db5eff8 · 2026-11-12
+Origins: ARC-4.4, ARC-4.8 · Intention i-61a2dc12 · 2026-11-12
 
