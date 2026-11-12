@@ -17,9 +17,9 @@ Removed by Intention i-b77149ed · 2026-11-12
 
 ## start
 
-Reason: Persist rootless UUID receipts and retain folders while acceptance is uncertain
+Reason: Verify the stored assignment and terminal result before removing its recoverable folder
 
-Origins: ARC-4.6 · Intention i-3db5eff8 · 2026-11-12
+Origins: ARC-4.6 · Intention i-ffc21e70 · 2026-11-12
 
 ## <before start>
 

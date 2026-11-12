@@ -111,3 +111,21 @@ Reason: Persist rootless UUID receipts and retain folders while acceptance is un
 
 Origins: ARC-4.6 · Intention i-3db5eff8 · 2026-11-12
 
+## PostgresConnection.end
+
+Reason: Verify the stored assignment and terminal result before removing its recoverable folder
+
+Origins: ARC-4.6 · Intention i-ffc21e70 · 2026-11-12
+
+## PostgresConnection.exchange_state
+
+Reason: Verify the stored assignment and terminal result before removing its recoverable folder
+
+Origins: ARC-4.6 · Intention i-ffc21e70 · 2026-11-12
+
+## StoredExchange
+
+Reason: Verify the stored assignment and terminal result before removing its recoverable folder
+
+Origins: ARC-4.6 · Intention i-ffc21e70 · 2026-11-12
+
