@@ -23,14 +23,24 @@ Both detached and direct starts go through installation writer admission. Before
 
 An **Exchange Phase** is a stage of a Chat Exchange with a specific responsibility. It may do local work or contain one or more agent [Turns](../../../../arbol/GLOSSARY.md#turn). Durable acceptance and acknowledgement come before Intake. Steady writes and saves the Exchange end after Finalization. Recovery settles the recorded Exchange through the shared lifecycle.
 
+#### Phase transitions
+
+Steady starts Intake after acknowledgement. Each phase makes its hand-off by calling the next phase explicitly. Intake calls Planning when the request needs a plan, or calls Execution directly when the request can be handled immediately. Planning calls Execution with the plan available in the shared Exchange data. Execution calls Finalization with the outcome. Finalization hands that outcome back to the shared Exchange end handling.
+
 | Phase | Responsibility | Initial implementation |
 |---|---|---|
-| **Intake** | Preserve the submitted message, gather the initial context needed to understand it, and classify the request. | Pass through to Planning. |
-| **Planning** | Use the request, context and labels to decide how to proceed. A simple question may go straight to Execution, while research or implementation may warrant a short plan. | Pass through to Execution. |
+| **Intake** | Preserve the submitted message, gather initial context, classify the request and decide whether it needs Planning. | Pass through to Planning. |
+| **Planning** | Use the request, context and labels to decide how to approach work that needs a plan. | Pass through to Execution. |
 | **Execution** | Answer the request or carry out the plan. Steady may supply a workflow or let the agent decide how to proceed. Agent tool interactions happen here. | Run the existing single Driver inference and retain its outcome. |
 | **Finalization** | Inspect or classify the outcome when needed and run any wrap-up operations before the Exchange ends. | Pass the Execution outcome through to the shared end handling. |
 
 For example, an agent can request a tool during Execution and resume in another Turn when it gets the result. Both Turns belong to the same Execution phase and the same Exchange. A Driver run can contain multiple Turns.
+
+#### Phase data
+
+Each phase owns its own **private phase data** for intermediate work. All phases can read and write the same **public Exchange data** for that Exchange. Before calling its successor, a phase writes any outputs the successor needs to the public data and passes it the same shared object. The successor starts with its own private data. Here public means shared across phases. The Elma Chat and persistence interfaces will define which fields they carry.
+
+For example, Intake can put the request labels in the Exchange data and call Planning. Planning reads those labels, keeps its working notes private, writes the selected plan to the Exchange data and calls Execution.
 
 #### Elma Chat phase preview
 
@@ -56,9 +66,10 @@ STE-0.1 through STE-0.14 use the corresponding Trivial requirements as their sta
 | STE-0.12 | use typed Python 3.14 on the interpreter packaged in its Build, depend only on the standard library and pinned psycopg 3, and share no implementation code with another Trunk | TRV-0.12 | Build policy and packaged interpreter checks |
 | STE-0.13 | build `arbol-trunk/steady` from `trunks/steady/` with entry `bin/arbol-trunk-steady`. Declare `schemaCompatibility` and `installationLayout` in the Build description and record. Qualify a working Build with its unit checks, shared lifecycle checks on a single installation for each declared schema compatibility version, and one real message through the Claude Driver | TRV-0.13, ARC-4.3, ARC-5 | Unit checks, installation lifecycle checks and live Claude message |
 | STE-0.14 | use the accepted chat's canonical lowercase, hyphenated UUID as `chatSessionId`, including for first and replacement messages. Add `arbolChat: true` for Claude and Codex. Send the continuity field alone for Pi and MiMo | TRV-0.14, ARC-4.7 | Driver request and live chat identity checks |
-| STE-0.15 | run the phases in the order Intake, Planning, Execution and Finalization after acknowledging acceptance and before saving the end. Keep settlement on the shared recovery path | STE-D3, ARC-4.6 | Accepted Exchange and settlement checks |
+| STE-0.15 | start Intake after acknowledging acceptance. Have Intake explicitly call Planning or Execution, have Planning call Execution, and have Execution call Finalization before shared end handling. Keep settlement on the shared recovery path | STE-D3, STE-D4, ARC-4.6 | Direct and planned Exchange paths and settlement checks |
 | STE-0.16 | provide pass-through placeholders for Intake, Planning and Finalization, and run the single Driver inference in Execution as specified by STE-0.1 through STE-0.14 | STE-D3 | Phase order and baseline Exchange checks |
 | STE-0.17 | demonstrate the four phases in an Elma Chat preview using a fictional Exchange, an independent random delay of 5 to 20 seconds per phase, and a message at each phase start and finish. Track current phase separately from each message's origin. Use regular chat layout with a faint, stable background tint as the only visible phase cue, and allow replay after completion | Owner direction | Elma phase preview |
+| STE-0.18 | give each phase its own private data and read/write access to the same public Exchange data. Carry shared outputs to the next phase through the public Exchange data | STE-D4 | Phase data ownership and hand-off checks |
 
 ## Interface
 
@@ -68,7 +79,7 @@ For capability preparation, query `info`, `subscriptions families` and `subscrip
 
 ## Open decisions
 
-What data does each phase need to receive and produce? Decide which information Elma Chat should show while an Exchange is active, which belongs in saved chat history, and which stays private to Steady. The initial phase hooks are internal. Phase payloads, persistence and Bridge interfaces are open for discussion, along with the work each placeholder will take on.
+Which fields belong in each phase's private data and in the public Exchange data? Decide which of the shared fields Elma Chat should receive live, which belong in saved chat history, and which are needed only while the Exchange runs. The field definitions, persistence and Bridge interfaces remain open, along with the work each placeholder will take on.
 
 ## Decisions
 
@@ -77,3 +88,4 @@ What data does each phase need to receive and produce? Decide which information 
 | STE-D1 | What are the display name and code name of the new Trunk? | Steady Trunk, code name `steady`; requirement prefix `STE` | Decided by the owner on 11 November 2026: “name it "Steady Trunk"”; the lowercase code name follows the Trunk naming convention |
 | STE-D2 | What role and starting behaviour should Steady have? | Use Trivial's requirements as the draft baseline for Arbol's primary Trunk | Owner direction, 19 November 2026 |
 | STE-D3 | How should Steady organise an Exchange? | Intake → Planning → Execution → Finalization, following durable acceptance | The owner agreed to the phase names and requested placeholders on 19 November 2026 |
+| STE-D4 | How do phases hand off work? | Each phase calls its successor explicitly. Intake can skip Planning. Each phase owns private data and can read and write the public Exchange data | Owner direction, 19 November 2026 |
