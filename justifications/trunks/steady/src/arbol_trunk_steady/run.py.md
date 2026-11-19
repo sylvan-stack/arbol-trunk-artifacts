@@ -41,9 +41,9 @@ Removed by Intention i-feb2f057 · 2026-11-19
 
 ## run_accepted
 
-Reason: Save and recover Exchange phase detail rows
+Reason: Capture commands and exact parameters at the Driver boundary
 
-Origins: STE-0.25 · Intention i-1852d39e · 2026-11-19
+Origins: STE-0.23 · Intention i-7c2abd2e · 2026-11-19
 
 ## run_exchange
 
@@ -53,7 +53,7 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## execution
 
-Reason: Track private and public data across explicit Exchange phases
+Reason: Capture commands and exact parameters at the Driver boundary
 
-Origins: STE-0.23 · Intention i-545c8ea2 · 2026-11-19
+Origins: STE-0.23 · Intention i-7c2abd2e · 2026-11-19
 

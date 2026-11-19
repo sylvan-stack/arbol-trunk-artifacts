@@ -5,9 +5,9 @@ role: authored
 
 ## <before CapabilityError>
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Capture commands and exact parameters at the Driver boundary
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: STE-0.23 · Intention i-7c2abd2e · 2026-11-19
 
 ## CapabilityError
 
@@ -125,9 +125,9 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## DriverRun.start
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Capture commands and exact parameters at the Driver boundary
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: STE-0.23 · Intention i-7c2abd2e · 2026-11-19
 
 ## DriverRun.wait
 
@@ -155,15 +155,15 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## capabilities
 
-Reason: Deliver prepared context only to an advertising Driver and retain the empty ownership signal
+Reason: Capture commands and exact parameters at the Driver boundary
 
-Origins: STE-0.21 · Intention i-60704c5e · 2026-11-19
+Origins: STE-0.23 · Intention i-7c2abd2e · 2026-11-19
 
 ## capability_query
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Capture commands and exact parameters at the Driver boundary
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: STE-0.23 · Intention i-7c2abd2e · 2026-11-19
 
 ## find_launcher
 
