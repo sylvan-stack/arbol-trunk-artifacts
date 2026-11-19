@@ -5,13 +5,25 @@ role: authored
 
 ## <before archive>
 
-Reason: Publish Trivial’s baseline schema declaration and check that the registry and packaged executable agree.
+Reason: Package Trivial with the declared layout and expose the same pinned package recipe for Steady.
 
-Origins: ARC-4.3 · Intention i-f30b79be · 2026-11-12
+Origins: ARC-5.6 · Intention i-4578502d · 2026-11-19
 
 ## package
 
-Reason: Trivial and Steady must derive the runtime, database guard and settings from the same layout definition in both checkouts and Builds.
+Reason: Package Trivial with the declared layout and expose the same pinned package recipe for Steady.
 
-Origins: ARC-5.1, ARC-5.5 · Intention i-af5ae4bb · 2026-11-19
+Origins: ARC-5.6 · Intention i-4578502d · 2026-11-19
+
+## main
+
+Reason: Package Trivial with the declared layout and expose the same pinned package recipe for Steady.
+
+Origins: ARC-5.6 · Intention i-4578502d · 2026-11-19
+
+## verify_package
+
+Reason: Package Trivial with the declared layout and expose the same pinned package recipe for Steady.
+
+Origins: ARC-5.6 · Intention i-4578502d · 2026-11-19
 
