@@ -5,9 +5,9 @@ role: authored
 
 ## <before Settlement>
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Save and recover Exchange phase detail rows
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: STE-0.25 · Intention i-1852d39e · 2026-11-19
 
 ## Replay
 
@@ -23,9 +23,9 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## _settle_locked
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Save and recover Exchange phase detail rows
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: STE-0.25 · Intention i-1852d39e · 2026-11-19
 
 ## _stored_state
 

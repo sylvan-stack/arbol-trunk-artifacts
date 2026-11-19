@@ -11,9 +11,9 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## <before row_line>
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Save and recover Exchange phase detail rows
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: STE-0.25 · Intention i-1852d39e · 2026-11-19
 
 ## MessageRow
 
@@ -71,9 +71,9 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## RunRow.statement
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Save and recover Exchange phase detail rows
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: STE-0.25 · Intention i-1852d39e · 2026-11-19
 
 ## ToolCallRow
 
@@ -110,4 +110,16 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
 
 Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+
+## PhaseDetailRow
+
+Reason: Save and recover Exchange phase detail rows
+
+Origins: STE-0.25 · Intention i-1852d39e · 2026-11-19
+
+## PhaseDetailRow.statement
+
+Reason: Save and recover Exchange phase detail rows
+
+Origins: STE-0.25 · Intention i-1852d39e · 2026-11-19
 

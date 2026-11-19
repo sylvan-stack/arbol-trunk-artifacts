@@ -5,9 +5,9 @@ role: authored
 
 ## <before DatabaseUnavailable>
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Save and recover Exchange phase detail rows
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: STE-0.25 · Intention i-1852d39e · 2026-11-19
 
 ## <before PostgresConnection>
 
@@ -125,9 +125,9 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## PostgresConnection.__init__
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Save and recover Exchange phase detail rows
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: STE-0.25 · Intention i-1852d39e · 2026-11-19
 
 ## PostgresConnection.accept
 
@@ -149,9 +149,9 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## PostgresConnection.end
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Save and recover Exchange phase detail rows
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: STE-0.25 · Intention i-1852d39e · 2026-11-19
 
 ## PostgresConnection.exchange_state
 
@@ -191,9 +191,9 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## PostgresConnection.save
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Save and recover Exchange phase detail rows
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: STE-0.25 · Intention i-1852d39e · 2026-11-19
 
 ## PriorExchange
 
@@ -293,9 +293,9 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## postgres
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Save and recover Exchange phase detail rows
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: STE-0.25 · Intention i-1852d39e · 2026-11-19
 
 ## preflight
 
