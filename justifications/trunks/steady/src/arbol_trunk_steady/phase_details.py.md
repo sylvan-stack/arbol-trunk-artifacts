@@ -75,3 +75,9 @@ Reason: Record Intake instructions and actual Cue Card preparation
 
 Origins: STE-0.23 · Intention i-d9296f53 · 2026-11-19
 
+## PhaseDetails.tool_started
+
+Reason: Record Driver tool commands as they start
+
+Origins: STE-0.23 · Intention i-b4338b23 · 2026-11-19
+

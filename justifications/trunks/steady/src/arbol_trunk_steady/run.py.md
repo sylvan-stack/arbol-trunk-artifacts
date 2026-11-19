@@ -5,9 +5,9 @@ role: authored
 
 ## <before run_exchange>
 
-Reason: Track private and public data across explicit Exchange phases
+Reason: Record Driver tool commands as they start
 
-Origins: STE-0.23 · Intention i-545c8ea2 · 2026-11-19
+Origins: STE-0.23 · Intention i-b4338b23 · 2026-11-19
 
 ## RunOver
 
@@ -17,9 +17,9 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## drive
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Record Driver tool commands as they start
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: STE-0.23 · Intention i-b4338b23 · 2026-11-19
 
 ## file_full
 
@@ -53,7 +53,7 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## execution
 
-Reason: Capture commands and exact parameters at the Driver boundary
+Reason: Record Driver tool commands as they start
 
-Origins: STE-0.23 · Intention i-7c2abd2e · 2026-11-19
+Origins: STE-0.23 · Intention i-b4338b23 · 2026-11-19
 
