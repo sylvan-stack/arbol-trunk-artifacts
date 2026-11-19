@@ -17,9 +17,9 @@ Origins: STE-0.15, STE-0.16 · Intention i-feb2f057 · 2026-11-19
 
 ## intake
 
-Reason: Prepare cards in Intake and hand the result to Planning and Execution
+Reason: Make prepared glossary instructions available in the public Exchange data
 
-Origins: STE-0.20 · Intention i-47618df0 · 2026-11-19
+Origins: STE-0.20, STE-0.22 · Intention i-9177739c · 2026-11-19
 
 ## planning
 
@@ -35,13 +35,19 @@ Origins: STE-0.20 · Intention i-47618df0 · 2026-11-19
 
 ## ExchangeData
 
-Reason: Prepare cards in Intake and hand the result to Planning and Execution
+Reason: Make prepared glossary instructions available in the public Exchange data
 
-Origins: STE-0.20 · Intention i-47618df0 · 2026-11-19
+Origins: STE-0.20, STE-0.22 · Intention i-9177739c · 2026-11-19
 
 ## prepare_cue_context
 
-Reason: Prepare cards in Intake and hand the result to Planning and Execution
+Removed: Make prepared glossary instructions available in the public Exchange data
 
-Origins: STE-0.20 · Intention i-47618df0 · 2026-11-19
+Removed by Intention i-9177739c · 2026-11-19
+
+## prepare_cues
+
+Reason: Make prepared glossary instructions available in the public Exchange data
+
+Origins: STE-0.20, STE-0.22 · Intention i-9177739c · 2026-11-19
 
