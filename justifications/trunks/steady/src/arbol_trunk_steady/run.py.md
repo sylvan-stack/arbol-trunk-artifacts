@@ -53,7 +53,7 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## execution
 
-Reason: Deliver prepared context only to an advertising Driver and retain the empty ownership signal
+Reason: Deliver the glossary through the Driver system prompt slot
 
-Origins: STE-0.21 · Intention i-60704c5e · 2026-11-19
+Origins: STE-0.21, STE-0.22 · Intention i-a651690a · 2026-11-19
 

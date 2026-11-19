@@ -5,15 +5,15 @@ role: authored
 
 ## <before run_request>
 
-Reason: Deliver prepared context only to an advertising Driver and retain the empty ownership signal
+Reason: Deliver the glossary through the Driver system prompt slot
 
-Origins: STE-0.21 · Intention i-60704c5e · 2026-11-19
+Origins: STE-0.21, STE-0.22 · Intention i-a651690a · 2026-11-19
 
 ## run_request
 
-Reason: Deliver prepared context only to an advertising Driver and retain the empty ownership signal
+Reason: Deliver the glossary through the Driver system prompt slot
 
-Origins: STE-0.21 · Intention i-60704c5e · 2026-11-19
+Origins: STE-0.21, STE-0.22 · Intention i-a651690a · 2026-11-19
 
 ## write_request
 
