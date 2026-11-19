@@ -5,9 +5,9 @@ role: authored
 
 ## <before runtime_folder>
 
-Reason: Read the same installation lease protocol from the independently packaged Trivial Trunk.
+Removed: Trivial and Steady must derive the runtime, database guard and settings from the same layout definition in both checkouts and Builds.
 
-Origins: ARC-4.4 · Intention i-4911695f · 2026-11-12
+Removed by Intention i-af5ae4bb · 2026-11-19
 
 ## Admission
 
@@ -95,7 +95,13 @@ Origins: ARC-4.4 · Intention i-4911695f · 2026-11-12
 
 ## runtime_folder
 
-Reason: Read the same installation lease protocol from the independently packaged Trivial Trunk.
+Removed: Trivial and Steady must derive the runtime, database guard and settings from the same layout definition in both checkouts and Builds.
 
-Origins: ARC-4.4 · Intention i-4911695f · 2026-11-12
+Removed by Intention i-af5ae4bb · 2026-11-19
+
+## <before private_dir>
+
+Reason: Trivial and Steady must derive the runtime, database guard and settings from the same layout definition in both checkouts and Builds.
+
+Origins: ARC-5.1, ARC-5.5 · Intention i-af5ae4bb · 2026-11-19
 

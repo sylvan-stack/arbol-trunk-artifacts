@@ -17,9 +17,9 @@ Origins: ARC-4.1, ARC-4.6 · Intention i-b77149ed · 2026-11-12
 
 ## installed_database
 
-Reason: Pass the installation home to Driver capability discovery after ASD-12 released run.py
+Reason: Trivial and Steady must derive the runtime, database guard and settings from the same layout definition in both checkouts and Builds.
 
-Origins: ARC-4.1, ARC-4.6 · Intention i-b77149ed · 2026-11-12
+Origins: ARC-5.1, ARC-5.5 · Intention i-af5ae4bb · 2026-11-19
 
 ## Root
 
@@ -59,9 +59,9 @@ Removed by Intention i-b77149ed · 2026-11-12
 
 ## <before InstalledDatabase>
 
-Reason: Pass the installation home to Driver capability discovery after ASD-12 released run.py
+Reason: Trivial and Steady must derive the runtime, database guard and settings from the same layout definition in both checkouts and Builds.
 
-Origins: ARC-4.1, ARC-4.6 · Intention i-b77149ed · 2026-11-12
+Origins: ARC-5.1, ARC-5.5 · Intention i-af5ae4bb · 2026-11-19
 
 ## Installation
 
@@ -83,9 +83,9 @@ Origins: ARC-4.6 · Intention i-3db5eff8 · 2026-11-12
 
 ## installation
 
-Reason: Pass the installation home to Driver capability discovery after ASD-12 released run.py
+Reason: Trivial and Steady must derive the runtime, database guard and settings from the same layout definition in both checkouts and Builds.
 
-Origins: ARC-4.1, ARC-4.6 · Intention i-b77149ed · 2026-11-12
+Origins: ARC-5.1, ARC-5.5 · Intention i-af5ae4bb · 2026-11-19
 
 ## private_directory
 
