@@ -5,9 +5,9 @@ role: authored
 
 ## <before run_exchange>
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Run the Exchange Phase placeholders after acknowledgement and preserve the Driver outcome through Finalization
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: STE-0.15, STE-0.16 · Intention i-feb2f057 · 2026-11-19
 
 ## RunOver
 
@@ -35,19 +35,25 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## one_run
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Removed: Run the Exchange Phase placeholders after acknowledgement and preserve the Driver outcome through Finalization
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Removed by Intention i-feb2f057 · 2026-11-19
 
 ## run_accepted
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Run the Exchange Phase placeholders after acknowledgement and preserve the Driver outcome through Finalization
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: STE-0.15, STE-0.16 · Intention i-feb2f057 · 2026-11-19
 
 ## run_exchange
 
 Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
 
 Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+
+## execution
+
+Reason: Run the Exchange Phase placeholders after acknowledgement and preserve the Driver outcome through Finalization
+
+Origins: STE-0.15, STE-0.16 · Intention i-feb2f057 · 2026-11-19
 
