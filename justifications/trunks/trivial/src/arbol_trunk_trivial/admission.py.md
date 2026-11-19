@@ -89,9 +89,9 @@ Origins: ARC-4.4 · Intention i-4911695f · 2026-11-12
 
 ## read_state
 
-Reason: Read the same installation lease protocol from the independently packaged Trivial Trunk.
+Reason: The independent Trunk readers must require the active layout while retaining the same lock and generation checks.
 
-Origins: ARC-4.4 · Intention i-4911695f · 2026-11-12
+Origins: ARC-5.6 · Intention i-68423448 · 2026-11-19
 
 ## runtime_folder
 
@@ -101,7 +101,7 @@ Removed by Intention i-af5ae4bb · 2026-11-19
 
 ## <before private_dir>
 
-Reason: Trivial and Steady must derive the runtime, database guard and settings from the same layout definition in both checkouts and Builds.
+Reason: The independent Trunk readers must require the active layout while retaining the same lock and generation checks.
 
-Origins: ARC-5.1, ARC-5.5 · Intention i-af5ae4bb · 2026-11-19
+Origins: ARC-5.6 · Intention i-68423448 · 2026-11-19
 

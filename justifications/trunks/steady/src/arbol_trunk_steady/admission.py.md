@@ -5,9 +5,9 @@ role: authored
 
 ## <before private_dir>
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: The independent Trunk readers must require the active layout while retaining the same lock and generation checks.
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: ARC-5.6 · Intention i-68423448 · 2026-11-19
 
 ## Admission
 
@@ -89,7 +89,7 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## read_state
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: The independent Trunk readers must require the active layout while retaining the same lock and generation checks.
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: ARC-5.6 · Intention i-68423448 · 2026-11-19
 
