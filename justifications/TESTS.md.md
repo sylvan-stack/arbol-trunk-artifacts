@@ -11,9 +11,9 @@ Origins: ARC-4.3, ARC-4.6, DRV-5.10 · Intention i-4d152615 · 2026-11-12
 
 ## Tests: arbol-trunk > Real existing profiles for live qualification · 12 November 2026
 
-Reason: Document the Trivial live runner state override for layout 2.
+Reason: Carry the existing Trivial package checks and real Claude fixture to layout 2 without writing to installed state.
 
-Origins: ARC-5.1, ARC-5.5, ARC-5.6 · Intention i-0785a295 · 2026-11-19
+Origins: ARC-5.1, ARC-5.5, ARC-5.6, TRV-0.13 · Intention i-52aca5fe · 2026-11-19
 
 ## Tests: arbol-trunk > Selection and limits
 

@@ -5,9 +5,9 @@ role: authored
 
 ## <before program_policy>
 
-Reason: Verify the packaged schema declaration against the executable and numbered registry record, and retain the live outcome checks with a private canonical installation and explicitly pinned test Driver.
+Reason: Carry the existing Trivial package checks and real Claude fixture to layout 2 without writing to installed state.
 
-Origins: ARC-4.3, ARC-4.6 · Intention i-f2c05c44 · 2026-11-12
+Origins: ARC-5.1, ARC-5.5, ARC-5.6, TRV-0.13 · Intention i-52aca5fe · 2026-11-19
 
 ## live_fixture
 
@@ -17,25 +17,25 @@ Removed by Intention i-f2c05c44 · 2026-11-12
 
 ## live
 
-Reason: Use the real existing Driver profile for complete Trivial live qualification
+Reason: Carry the existing Trivial package checks and real Claude fixture to layout 2 without writing to installed state.
 
-Origins: ARC-4.3, ARC-4.6, DRV-5.10 · Intention i-4d152615 · 2026-11-12
+Origins: ARC-5.1, ARC-5.5, ARC-5.6, TRV-0.13 · Intention i-52aca5fe · 2026-11-19
 
 ## driver_bridge
 
-Reason: Verify the packaged schema declaration against the executable and numbered registry record, and retain the live outcome checks with a private canonical installation and explicitly pinned test Driver.
+Reason: Carry the existing Trivial package checks and real Claude fixture to layout 2 without writing to installed state.
 
-Origins: ARC-4.3, ARC-4.6 · Intention i-f2c05c44 · 2026-11-12
+Origins: ARC-5.1, ARC-5.5, ARC-5.6, TRV-0.13 · Intention i-52aca5fe · 2026-11-19
 
 ## program_policy
 
-Reason: Verify the packaged schema declaration against the executable and numbered registry record, and retain the live outcome checks with a private canonical installation and explicitly pinned test Driver.
+Reason: Carry the existing Trivial package checks and real Claude fixture to layout 2 without writing to installed state.
 
-Origins: ARC-4.3, ARC-4.6 · Intention i-f2c05c44 · 2026-11-12
+Origins: ARC-5.1, ARC-5.5, ARC-5.6, TRV-0.13 · Intention i-52aca5fe · 2026-11-19
 
 ## verify
 
-Reason: Verify the packaged schema declaration against the executable and numbered registry record, and retain the live outcome checks with a private canonical installation and explicitly pinned test Driver.
+Reason: Carry the existing Trivial package checks and real Claude fixture to layout 2 without writing to installed state.
 
-Origins: ARC-4.3, ARC-4.6 · Intention i-f2c05c44 · 2026-11-12
+Origins: ARC-5.1, ARC-5.5, ARC-5.6, TRV-0.13 · Intention i-52aca5fe · 2026-11-19
 
