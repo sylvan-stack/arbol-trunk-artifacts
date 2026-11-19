@@ -5,9 +5,9 @@ role: authored
 
 ## <before BuildRecordError>
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Direct Trunk startup must check its source, package and numbered registry declaration against the executable layout.
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: ARC-5.6, STE-0.13 · Intention i-8b713e32 · 2026-11-19
 
 ## BuildRecordError
 
@@ -17,9 +17,9 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## build_info
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Direct Trunk startup must check its source, package and numbered registry declaration against the executable layout.
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: ARC-5.6, STE-0.13 · Intention i-8b713e32 · 2026-11-19
 
 ## build_location
 
@@ -35,7 +35,13 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## source_compatibility
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Direct Trunk startup must check its source, package and numbered registry declaration against the executable layout.
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: ARC-5.6, STE-0.13 · Intention i-8b713e32 · 2026-11-19
+
+## matches_layout
+
+Reason: Direct Trunk startup must check its source, package and numbered registry declaration against the executable layout.
+
+Origins: ARC-5.6, STE-0.13 · Intention i-8b713e32 · 2026-11-19
 
