@@ -34,7 +34,7 @@ For example, an agent can request a tool during Execution and resume in another 
 
 #### Elma Chat phase preview
 
-The Elma Chat preview runs a fictional Exchange on demand. It chooses a fresh random delay of 5 to 20 seconds for each phase and shows one sample message when the phase starts and another when it finishes. The preview keeps the Exchange's current phase and each message's originating phase in local state. A readable status names the phase in progress. The transcript keeps each phase's label and background tint as the Exchange advances. At completion the transcript remains available, and Replay starts a fresh simulation. This is a design preview with a local lifecycle. Production phase storage and Elma's Bridge interface remain open design work.
+The Elma Chat preview runs a fictional Exchange on demand. It chooses a fresh random delay of 5 to 20 seconds for each phase and shows one sample message when the phase starts and another when it finishes. The preview keeps the Exchange's current phase and each message's originating phase in local state. Messages follow the regular chat layout. A faint background tint behind each group of messages is the only visible phase cue. Groups retain their tints as the Exchange advances. At completion the transcript remains available, and Replay starts a fresh simulation. This is a design preview with a local lifecycle. Production phase storage and Elma's Bridge interface remain open design work.
 
 ## Requirements
 
@@ -58,7 +58,7 @@ STE-0.1 through STE-0.14 use the corresponding Trivial requirements as their sta
 | STE-0.14 | use the accepted chat's canonical lowercase, hyphenated UUID as `chatSessionId`, including for first and replacement messages. Add `arbolChat: true` for Claude and Codex. Send the continuity field alone for Pi and MiMo | TRV-0.14, ARC-4.7 | Driver request and live chat identity checks |
 | STE-0.15 | run the phases in the order Intake, Planning, Execution and Finalization after acknowledging acceptance and before saving the end. Keep settlement on the shared recovery path | STE-D3, ARC-4.6 | Accepted Exchange and settlement checks |
 | STE-0.16 | provide pass-through placeholders for Intake, Planning and Finalization, and run the single Driver inference in Execution as specified by STE-0.1 through STE-0.14 | STE-D3 | Phase order and baseline Exchange checks |
-| STE-0.17 | demonstrate the four phases in an Elma Chat preview using a fictional Exchange, an independent random delay of 5 to 20 seconds per phase, and a message at each phase start and finish. Show the current phase separately from the stable phase labels and background tints on transcript content, and allow replay after completion | Owner direction | Elma phase preview |
+| STE-0.17 | demonstrate the four phases in an Elma Chat preview using a fictional Exchange, an independent random delay of 5 to 20 seconds per phase, and a message at each phase start and finish. Track current phase separately from each message's origin. Use regular chat layout with a faint, stable background tint as the only visible phase cue, and allow replay after completion | Owner direction | Elma phase preview |
 
 ## Interface
 
