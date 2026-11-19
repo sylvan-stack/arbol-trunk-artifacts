@@ -38,7 +38,7 @@ For example, an agent can request a tool during Execution and resume in another 
 
 #### Phase data
 
-Each phase owns its own **private phase data** for intermediate work. All phases can read and write the same **public Exchange data** for that Exchange. Before calling its successor, a phase writes any outputs the successor needs to the public data and passes it the same shared object. The successor starts with its own private data. Here public means shared across phases. The Elma Chat and persistence interfaces will define which fields they carry.
+Each phase owns its own **private phase data** for intermediate work. All phases can read and write the same **public Exchange data** for that Exchange. Before calling its successor, a phase writes any outputs the successor needs to the public data and passes it the same shared object. The successor starts with its own private data. Here public means shared across phases. Exchange Details reads the fields described below.
 
 For example, Intake can put the request labels in the Exchange data and call Planning. Planning reads those labels, keeps its working notes private, writes the selected plan to the Exchange data and calls Execution.
 
