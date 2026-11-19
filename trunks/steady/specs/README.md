@@ -3,14 +3,14 @@ role: authored
 ---
 # Steady Trunk specifications
 
-The standalone specifications of the **Steady Trunk**, code name `steady`. Its communication strategy is not yet decided; STE-0 remains a draft and no implementation is open.
+The standalone specifications of the **Steady Trunk**, code name `steady`, intended as Arbol's primary Trunk for everyday chat work. STE-0 records the single-Driver baseline and defines the four Exchange Phases. The phase data for Elma Chat is an open design decision.
 
 ## Specifications
 
 | Spec | Title | Status |
 |---|---|---|
-| [STE-0](00-the-steady-trunk.md) | The communication strategy | draft |
+| [STE-0](00-the-steady-trunk.md) | The Steady Trunk | draft |
 
 ## Conventions
 
-Follow the [Driver Contract](../../../../arbol/driver-contract/README.md#conventions) and the [Root Contract](../../../../arbol-root/contract/README.md), as the [Trivial Trunk specifications](../../trivial/specs/README.md) do. Shared Trunk behavior stays in the Root Contract; this chapter specifies only what the Steady Trunk's communication strategy adds or changes. Identifiers here start with `STE`.
+Follow the [Driver Contract conventions](../../../../arbol/driver-contract/README.md#conventions). The [single-database architecture](../../../../arbol/architecture/04-single-database.md) and [installation file layout](../../../../arbol/architecture/05-where-arbol-keeps-its-files.md) govern the shared runtime. Identifiers here start with `STE`.
