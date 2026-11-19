@@ -17,9 +17,9 @@ Origins: STE-0.23 · Intention i-545c8ea2 · 2026-11-19
 
 ## intake
 
-Reason: Track private and public data across explicit Exchange phases
+Reason: Record Intake instructions and actual Cue Card preparation
 
-Origins: STE-0.23 · Intention i-545c8ea2 · 2026-11-19
+Origins: STE-0.23 · Intention i-d9296f53 · 2026-11-19
 
 ## planning
 
@@ -47,13 +47,13 @@ Removed by Intention i-9177739c · 2026-11-19
 
 ## prepare_cues
 
-Reason: Make prepared glossary instructions available in the public Exchange data
+Reason: Record Intake instructions and actual Cue Card preparation
 
-Origins: STE-0.20, STE-0.22 · Intention i-9177739c · 2026-11-19
+Origins: STE-0.23 · Intention i-d9296f53 · 2026-11-19
 
 ## <before prepare_cues>
 
-Reason: Track private and public data across explicit Exchange phases
+Reason: Record Intake instructions and actual Cue Card preparation
 
-Origins: STE-0.23 · Intention i-545c8ea2 · 2026-11-19
+Origins: STE-0.23 · Intention i-d9296f53 · 2026-11-19
 

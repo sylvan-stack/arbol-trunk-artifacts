@@ -47,13 +47,31 @@ Origins: STE-0.23 · Intention i-545c8ea2 · 2026-11-19
 
 ## PhaseDetails.record
 
-Reason: Save and recover Exchange phase detail rows
+Reason: Record Intake instructions and actual Cue Card preparation
 
-Origins: STE-0.25 · Intention i-1852d39e · 2026-11-19
+Origins: STE-0.23 · Intention i-d9296f53 · 2026-11-19
 
 ## replay_phase_details
 
 Reason: Save and recover Exchange phase detail rows
 
 Origins: STE-0.25 · Intention i-1852d39e · 2026-11-19
+
+## PhaseDetails.add_command
+
+Reason: Record Intake instructions and actual Cue Card preparation
+
+Origins: STE-0.23 · Intention i-d9296f53 · 2026-11-19
+
+## PhaseDetails.intake_output
+
+Reason: Record Intake instructions and actual Cue Card preparation
+
+Origins: STE-0.23 · Intention i-d9296f53 · 2026-11-19
+
+## PhaseDetails.subprocess
+
+Reason: Record Intake instructions and actual Cue Card preparation
+
+Origins: STE-0.23 · Intention i-d9296f53 · 2026-11-19
 
