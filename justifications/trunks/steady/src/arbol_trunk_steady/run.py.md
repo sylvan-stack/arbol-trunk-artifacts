@@ -53,7 +53,7 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## execution
 
-Reason: Prepare cards in Intake and hand the result to Planning and Execution
+Reason: Deliver prepared context only to an advertising Driver and retain the empty ownership signal
 
-Origins: STE-0.20 · Intention i-47618df0 · 2026-11-19
+Origins: STE-0.21 · Intention i-60704c5e · 2026-11-19
 
