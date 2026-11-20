@@ -5,9 +5,9 @@ role: authored
 
 ## <before run_exchange>
 
-Reason: Record Driver tool commands as they start
+Reason: Record actual Forester callback counts for the active Exchange
 
-Origins: STE-0.23 · Intention i-b4338b23 · 2026-11-19
+Origins: STE-0.30 · Intention i-a6171406 · 2026-11-20
 
 ## RunOver
 
@@ -17,9 +17,9 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## drive
 
-Reason: Record Driver tool commands as they start
+Reason: Record actual Forester callback counts for the active Exchange
 
-Origins: STE-0.23 · Intention i-b4338b23 · 2026-11-19
+Origins: STE-0.30 · Intention i-a6171406 · 2026-11-20
 
 ## file_full
 
@@ -53,7 +53,7 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## execution
 
-Reason: Record Driver tool commands as they start
+Reason: Record actual Forester callback counts for the active Exchange
 
-Origins: STE-0.23 · Intention i-b4338b23 · 2026-11-19
+Origins: STE-0.30 · Intention i-a6171406 · 2026-11-20
 
