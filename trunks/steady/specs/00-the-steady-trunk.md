@@ -62,7 +62,9 @@ Intake emits [Exchange Updates](../../../../arbol/GLOSSARY.md#exchange-update) f
 
 Store the title lists in a separate `exchangeUpdates` record in the existing Intake phase journal. Elma reads those records through the bounded phase-detail reader and renders them live and from saved Exchanges. The records contain display titles. The normal prompt, history and command records retain their existing shapes.
 
-Elma shows “Inference started at …” above the response and “Inference ended at …” after it. Prefer the top-level Driver's actual start and finish times, including when those times are read back from saved runs. Leave a timestamp absent when its event was never recorded. Use the same smaller, muted styling for these updates and for the Intake findings. Keep the message-sent timestamp.
+Elma shows “Inference started at …” above the response and “Inference ended at …” after it. Prefer the top-level Driver's actual start and finish times, including when those times are read back from saved runs. Leave a timestamp absent when its event was never recorded. Use the same smaller, muted styling for these updates and for the Intake findings. The pinned prompt is the sent-message record in the transcript.
+
+During a Driver run, Steady counts Forester callbacks appended to the Ledger with the active chat's recorded Arbol identity. The installation admits one open Exchange per chat. Steady starts reading at the Ledger's current end immediately before the Driver starts, counts allowlisted callback names, and publishes changed totals as Execution Exchange Updates. Only callback names and counts leave the Ledger. Unavailable Ledger records and callbacks without the chat identity produce no update. Elma groups counts on one muted line during the run and reads the saved totals on reopen.
 
 #### Elma Chat phase preview
 
@@ -111,6 +113,8 @@ STE-0.1 through STE-0.14 use the corresponding Trivial requirements as their sta
 | STE-0.27 | Record available Intake glossary and Operational Artifact title lists from Forester's checked Cue Card delivery. Show the corresponding Exchange Updates in Elma while running and after reopening. Use the Driver's recorded start and end times for the smaller, muted inference updates | Owner direction | Live and saved Exchange Updates, including no-match and unavailable cases |
 | STE-0.28 | Show 20 candidate pattern sets in Storybook, each across all four Exchange Phases, with a readable sample transcript for the selected set | Owner direction | Storybook Phase Backgrounds gallery |
 | STE-0.29 | Apply the chosen Ripples background to phase-attributed Steady transcript content in live Elma and to all four phases in the timed Storybook preview. Tune the phase colors for Birch, keep its Execution tint and ripples lighter than the chat canvas, keep text legible and open the matching phase on Cmd-click | Owner direction, STE-0.26, STE-0.28 | Birch timed preview and live or reopened Steady Exchange |
+| STE-0.30 | Publish a muted Execution Exchange Update with actual Forester callback counts read from new Ledger records bearing the active Arbol chat identity during the Driver run. Preserve the recorded totals for reopening | Owner direction, STE-0.27 | Hook update in the Response preview and bounded live or saved phase readback |
+| STE-0.31 | Keep the pinned prompt as the sent-message record. Use an unobtrusive keyboard focus marker for the reading area and compact design-system tool disclosures with expandable details | Owner direction, STE-0.26 | Birch Elma transcript preview and installed renderer |
 
 ## Interface
 
