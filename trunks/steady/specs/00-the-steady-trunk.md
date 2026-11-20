@@ -117,6 +117,7 @@ STE-0.1 through STE-0.14 use the corresponding Trivial requirements as their sta
 | STE-0.31 | Keep the pinned prompt as the sent-message record. Keep the reading area keyboard reachable with no decorative bar or outline, and use compact design-system tool disclosures with expandable details | Owner direction, STE-0.26 | Birch Elma transcript preview and installed renderer |
 | STE-0.32 | Start the first actual phase row directly below the pinned prompt. Use the design system’s unlabeled First Light artwork between preceding activity and a final answer. Preserve the answer navigation target | Owner direction, STE-0.29, STE-0.31 | Birch transcript with tools and an answer |
 | STE-0.33 | Show Narrator’s compact activity label on collapsed shell calls in live and saved responses, with a generic shell label when extraction is unavailable. Keep the exact command available in expanded details | Owner direction, MYC-23.4 | Expanded and collapsed shell tool stories and installed renderer |
+| STE-0.34 | Paint each Exchange Phase only across its own transcript band. Use the theme canvas for unassigned space, including before the first band and below Finalization. Cmd-click opens a phase only within its band. Cmd+Enter opens the recorded active or latest phase | Owner direction, STE-0.26, STE-0.29 | Completed Birch and dark-theme transcripts with visible space after Finalization |
 
 ## Interface
 
