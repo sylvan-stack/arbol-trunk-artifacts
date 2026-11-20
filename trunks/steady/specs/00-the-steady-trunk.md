@@ -74,6 +74,8 @@ The popup displays at most the first 1,000 Unicode characters of a long text val
 
 Live Elma opens the same popup from a Steady response with Cmd-click or Cmd+Enter. Driver response content has the subtle Execution background. The popup's phase selector reaches the other recorded phases, including phases that produce no transcript text. The renderer requests phase details through [the Bridge](../../../../arbol/backend/01-the-bridge.md#exchange-details) only while the popup is open. It reads new details during an open Exchange and makes a final read after settlement. Earlier Exchanges without details show an empty read state.
 
+The Elma Storybook includes a separate comparison of 20 proposed phase backgrounds. Each option shows a geometric pattern and the existing tints across Intake, Planning, Execution and Finalization, with an enlarged fictional transcript for judging readability. The pattern gallery is a design selection preview.
+
 ## Requirements
 
 STE-0.1 through STE-0.14 use the corresponding Trivial requirements as their starting point. The checks describe what would qualify Steady's own Build.
@@ -107,6 +109,7 @@ STE-0.1 through STE-0.14 use the corresponding Trivial requirements as their sta
 | STE-0.25 | save phase details in the installation database on compatible schema revision 4 or later. Replay whole journal lines during settlement and store each position idempotently. Keep earlier database revisions usable | Owner direction, ARC-4.1 | Live reads, settlement and schema compatibility checks |
 | STE-0.26 | let live Elma inspect a Steady Exchange while it runs or after its details have been saved. Open the shared popup from the response, let the user select a recorded phase and move exact command records through bounded Bridge pages. Apply STE-0.24 only in the presentation | Owner direction, STE-0.24, STE-0.25 | Bridge detail pages and live Elma inspector checks |
 | STE-0.27 | Record available Intake glossary and Operational Artifact title lists from Forester's checked Cue Card delivery. Show the corresponding Exchange Updates in Elma while running and after reopening. Use the Driver's recorded start and end times for the smaller, muted inference updates | Owner direction | Live and saved Exchange Updates, including no-match and unavailable cases |
+| STE-0.28 | Show 20 candidate pattern sets in Storybook, each across all four Exchange Phases, with a readable sample transcript for the selected set | Owner direction | Storybook Phase Backgrounds gallery |
 
 ## Interface
 
