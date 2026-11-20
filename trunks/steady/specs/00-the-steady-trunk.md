@@ -56,6 +56,14 @@ The glossary matches terms in the accepted message and earlier unreplaced user m
 
 Drivers that support this extension advertise `capabilities.cueContext: 1` in `info`. On those Drivers, the optional `cueContext` field carries up to 8,000 characters of context for the current native turn. The Driver adds nonempty context at native submission as a labelled Cue Card block. It preserves the canonical `input`, history and continuity fingerprints. The field's presence, even with empty text, means Steady owns delivery on this run. For Claude and Codex it requires the validated Arbol chat marker. Those Drivers set `ARBOL_DISABLED_HOOK_FEATURES=cue-card-injection` in that run's native environment using [Forester's list of optional hook features](../../../../forester/specs/02-hooks.md#optional-hook-features). Forester skips selecting and injecting Cue Cards for the marked run, while the ordinary hook processing continues. Without the field, the Drivers omit the variable. Steady omits the field for older Drivers.
 
+#### Exchange Updates
+
+Intake emits [Exchange Updates](../../../../arbol/GLOSSARY.md#exchange-update) from the Cue Card preparation result. In first-mention order, report all included glossary term titles as “Glossary terms found: …”, or “No Glossary terms found” when an available catalog was checked and found none. In delivery order, report “Operational artifacts included: …” only when at least one included card points to an Operational Artifact under a corpus's `operations/` folder. Include artifacts delivered through the overflow file. A missing, disabled, shadowed or legacy preparation with no findings metadata leaves the corresponding update absent.
+
+Store the title lists in a separate `exchangeUpdates` record in the existing Intake phase journal. Elma reads those records through the bounded phase-detail reader and renders them live and from saved Exchanges. The records contain display titles. The normal prompt, history and command records retain their existing shapes.
+
+Elma shows “Inference started at …” above the response and “Inference ended at …” after it. Prefer the top-level Driver's actual start and finish times, including when those times are read back from saved runs. Leave a timestamp absent when its event was never recorded. Use the same smaller, muted styling for these updates and for the Intake findings. Keep the message-sent timestamp.
+
 #### Elma Chat phase preview
 
 The Elma Chat preview runs a fictional Exchange on demand. It chooses a fresh random delay of 5 to 20 seconds for each phase and shows one sample message when the phase starts and another when it finishes. The preview keeps the Exchange's current phase and each message's originating phase in local state. Messages follow the regular chat layout. A faint background tint behind each group of messages is the only visible phase cue. Groups retain their tints as the Exchange advances. At completion the transcript remains available, and Replay starts a fresh simulation.
@@ -98,6 +106,7 @@ STE-0.1 through STE-0.14 use the corresponding Trivial requirements as their sta
 | STE-0.24 | show a phase's commands in the Elma preview popup. Shorten individual long text payloads after 1,000 Unicode characters in the view while preserving commands, arguments, parameter names and configuration values, and collection structure | Owner direction | Elma phase inspector checks |
 | STE-0.25 | save phase details in the installation database on compatible schema revision 4 or later. Replay whole journal lines during settlement and store each position idempotently. Keep earlier database revisions usable | Owner direction, ARC-4.1 | Live reads, settlement and schema compatibility checks |
 | STE-0.26 | let live Elma inspect a Steady Exchange while it runs or after its details have been saved. Open the shared popup from the response, let the user select a recorded phase and move exact command records through bounded Bridge pages. Apply STE-0.24 only in the presentation | Owner direction, STE-0.24, STE-0.25 | Bridge detail pages and live Elma inspector checks |
+| STE-0.27 | Record available Intake glossary and Operational Artifact title lists from Forester's checked Cue Card delivery. Show the corresponding Exchange Updates in Elma while running and after reopening. Use the Driver's recorded start and end times for the smaller, muted inference updates | Owner direction | Live and saved Exchange Updates, including no-match and unavailable cases |
 
 ## Interface
 
