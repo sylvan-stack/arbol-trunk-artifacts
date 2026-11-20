@@ -47,13 +47,25 @@ Removed by Intention i-9177739c · 2026-11-19
 
 ## prepare_cues
 
-Reason: Record Intake instructions and actual Cue Card preparation
+Reason: Record the available Intake findings alongside existing phase details
 
-Origins: STE-0.23 · Intention i-d9296f53 · 2026-11-19
+Origins: STE-0.27 · Intention i-3b877dae · 2026-11-20
 
 ## <before prepare_cues>
 
-Reason: Record Intake instructions and actual Cue Card preparation
+Removed: Record the available Intake findings alongside existing phase details
 
-Origins: STE-0.23 · Intention i-d9296f53 · 2026-11-19
+Removed by Intention i-3b877dae · 2026-11-20
+
+## <before prepared_titles>
+
+Reason: Record the available Intake findings alongside existing phase details
+
+Origins: STE-0.27 · Intention i-3b877dae · 2026-11-20
+
+## prepared_titles
+
+Reason: Record the available Intake findings alongside existing phase details
+
+Origins: STE-0.27 · Intention i-3b877dae · 2026-11-20
 

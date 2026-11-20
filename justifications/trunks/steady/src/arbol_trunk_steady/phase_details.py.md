@@ -11,9 +11,9 @@ Origins: STE-0.25 · Intention i-1852d39e · 2026-11-19
 
 ## ExchangeData
 
-Reason: Track private and public data across explicit Exchange phases
+Reason: Record the available Intake findings alongside existing phase details
 
-Origins: STE-0.23 · Intention i-545c8ea2 · 2026-11-19
+Origins: STE-0.27 · Intention i-3b877dae · 2026-11-20
 
 ## PhaseData
 
@@ -65,9 +65,9 @@ Origins: STE-0.23 · Intention i-d9296f53 · 2026-11-19
 
 ## PhaseDetails.intake_output
 
-Reason: Record Intake instructions and actual Cue Card preparation
+Reason: Record the available Intake findings alongside existing phase details
 
-Origins: STE-0.23 · Intention i-d9296f53 · 2026-11-19
+Origins: STE-0.27 · Intention i-3b877dae · 2026-11-20
 
 ## PhaseDetails.subprocess
 
