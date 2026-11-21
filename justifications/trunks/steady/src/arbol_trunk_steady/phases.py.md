@@ -17,9 +17,9 @@ Origins: STE-0.23 · Intention i-545c8ea2 · 2026-11-19
 
 ## intake
 
-Reason: Record Intake instructions and actual Cue Card preparation
+Reason: Launch title work only for the first accepted Exchange of a chat that was untitled, with a valid tools-off Codex Driver request.
 
-Origins: STE-0.23 · Intention i-d9296f53 · 2026-11-19
+Origins: STE-0.35, STE-0.8, STE-0.23 · Intention i-b4024e0d · 2026-11-21
 
 ## planning
 
@@ -59,9 +59,9 @@ Removed by Intention i-3b877dae · 2026-11-20
 
 ## <before prepared_titles>
 
-Reason: Record the available Intake findings alongside existing phase details
+Reason: Launch title work only for the first accepted Exchange of a chat that was untitled, with a valid tools-off Codex Driver request.
 
-Origins: STE-0.27 · Intention i-3b877dae · 2026-11-20
+Origins: STE-0.35, STE-0.8, STE-0.23 · Intention i-b4024e0d · 2026-11-21
 
 ## prepared_titles
 

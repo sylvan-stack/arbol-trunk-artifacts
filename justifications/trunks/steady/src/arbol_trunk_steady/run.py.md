@@ -41,9 +41,9 @@ Removed by Intention i-feb2f057 · 2026-11-19
 
 ## run_accepted
 
-Reason: Capture commands and exact parameters at the Driver boundary
+Reason: Launch title work only for the first accepted Exchange of a chat that was untitled, with a valid tools-off Codex Driver request.
 
-Origins: STE-0.23 · Intention i-7c2abd2e · 2026-11-19
+Origins: STE-0.35, STE-0.8, STE-0.23 · Intention i-b4024e0d · 2026-11-21
 
 ## run_exchange
 

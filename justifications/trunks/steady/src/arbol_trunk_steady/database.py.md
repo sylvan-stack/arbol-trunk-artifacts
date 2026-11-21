@@ -35,9 +35,9 @@ Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
 
 ## Accepted
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Launch title work only for the first accepted Exchange of a chat that was untitled, with a valid tools-off Codex Driver request.
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: STE-0.35, STE-0.8, STE-0.23 · Intention i-b4024e0d · 2026-11-21
 
 ## ChatBusy
 
@@ -131,9 +131,9 @@ Origins: STE-0.25 · Intention i-1852d39e · 2026-11-19
 
 ## PostgresConnection.accept
 
-Reason: Give Steady its own checkout entry and single-Driver runtime for the phased Exchange
+Reason: Launch title work only for the first accepted Exchange of a chat that was untitled, with a valid tools-off Codex Driver request.
 
-Origins: STE-0.16 · Intention i-add752b8 · 2026-11-19
+Origins: STE-0.35, STE-0.8, STE-0.23 · Intention i-b4024e0d · 2026-11-21
 
 ## PostgresConnection.admit
 
