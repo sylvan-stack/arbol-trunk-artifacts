@@ -29,7 +29,7 @@ Steady starts Intake after acknowledgement. Each phase makes its hand-off by cal
 
 | Phase | Responsibility | Initial implementation |
 |---|---|---|
-| **Intake** | Preserve the submitted message, gather initial context, classify the request and decide whether it needs Planning. | Prepare Cue Cards and call Planning. |
+| **Intake** | Preserve the submitted message, gather initial context, classify the request and decide whether it needs Planning. | Start title generation when eligible, prepare Cue Cards and call Planning. |
 | **Planning** | Use the request, context and labels to decide how to approach work that needs a plan. | Pass through to Execution. |
 | **Execution** | Answer the request or carry out the plan. Steady may supply a workflow or let the agent decide how to proceed. Agent tool interactions happen here. | Run the existing single Driver inference and retain its outcome. |
 | **Finalization** | Inspect or classify the outcome when needed and run any wrap-up operations before the Exchange ends. | Pass the Execution outcome through to the shared end handling. |
@@ -55,6 +55,19 @@ After acknowledgement, Intake uses Forester's non-hook `cues prepare` operation 
 The glossary matches terms in the accepted message and earlier unreplaced user messages. Each card appears once in first-mention order under `## Glossary`, with the introduction “The following terms are used in this conversation.” Use one subheading per term and the full prepared card body. The glossary uses the same source checks as turn context, substituting required-reading directions for changed sources and omitting missing ones. It has no Steady or Forester character limit and does not use the overflow file. Execution sends it as `systemPrompt` when there are entries and the Driver supports `cueContext`. In Codex, a changed system prompt can rebuild the native thread from Arbol history.
 
 Drivers that support this extension advertise `capabilities.cueContext: 1` in `info`. On those Drivers, the optional `cueContext` field carries up to 8,000 characters of context for the current native turn. The Driver adds nonempty context at native submission as a labelled Cue Card block. It preserves the canonical `input`, history and continuity fingerprints. The field's presence, even with empty text, means Steady owns delivery on this run. For Claude and Codex it requires the validated Arbol chat marker. Those Drivers set `ARBOL_DISABLED_HOOK_FEATURES=cue-card-injection` in that run's native environment using [Forester's list of optional hook features](../../../../forester/specs/02-hooks.md#optional-hook-features). Forester skips selecting and injecting Cue Cards for the marked run, while the ordinary hook processing continues. Without the field, the Drivers omit the variable. Steady omits the field for older Drivers.
+
+#### Background chat title
+
+For a chat’s first accepted Exchange, Intake starts a separate title job. The job uses [Narrator Label Generation](../../../../mycel/specs/23-narrator-label-generation.md) with the first accepted user message as its only source. It requests a plain label of at most 12 words, counting every whitespace-separated word. Its reasoning adapter uses the configured default Codex Subscription through the installed Driver, with tools off, an empty working directory and no Arbol chat continuity. Use the Narrator model and effort in MYC-D99.
+
+Intake proceeds immediately to Cue Card preparation and Planning. The job can finish after the Exchange ends. It confirms the chat is untitled before contacting Narrator, and saves the label only if the chat is still untitled. The database write is independently admitted under the same installation generation. Elma reflects the saved title through the existing chat subscription. Follow-up messages and resends start no new title job. An unavailable component, oversized message, refusal, invalid title, timeout or failed write leaves the chat title as it was and has no effect on the Exchange.
+
+<!-- sources:
+arbol-trunk:trunks/steady/src/arbol_trunk_steady/phases.py#intake
+arbol-trunk:trunks/steady/src/arbol_trunk_steady/chat_title.py
+arbol-trunk:trunks/steady/src/arbol_trunk_steady/database.py
+mycel:src/mycel/_narrator/narrator.py
+-->
 
 #### Exchange Updates
 
@@ -91,7 +104,7 @@ STE-0.1 through STE-0.14 use the corresponding Trivial requirements as their sta
 | STE-0.5 | write the DRV-2 request with `runId` `<exchange>.1`, `workingDirectory`, `tools: "all"`, `history`, and the message as user `input`. Include `subscriptionId`, `model` and `effort` only when the route names them, use the chat identity in STE-0.14 and include `cueContext` and `systemPrompt` as specified in STE-0.21 and STE-0.22. Limit the request to these fields | TRV-0.5, ARC-4.7, STE-0.21, STE-0.22 | Driver request checks |
 | STE-0.6 | send every earlier Exchange of the chat that has not been replaced, regardless of its outcome, in Exchange order. Within each Exchange, send the user message, every assistant text block exactly as saved and every top-level tool call with its recorded result or error, in position order and in DRV-2 form | TRV-0.6 | History checks for completed, partial and replaced Exchanges |
 | STE-0.7 | read that history in the acceptance transaction, after marking any Exchange replaced by the resend | TRV-0.7 | Replacement and concurrent acceptance checks |
-| STE-0.8 | use the Driver for the main inference only, even when handed a small-call route, with no classification or title generation | TRV-0.8 | Exchange check with a small-call route |
+| STE-0.8 | run the main inference once on the selected route. Keep the background Narrator job independent of that run and its conversation | TRV-0.8, STE-0.35 | Exchange check with a small-call route |
 | STE-0.9 | send the user message and full saved history with the route and installation chat metadata described here. Deliver prepared Cue Cards through turn context and system instructions under STE-0.21 and STE-0.22. Read only Steady's own settings file for its default Driver | TRV-0.9, ARC-4, STE-0.21, STE-0.22 | Prompt, history and settings checks |
 | STE-0.10 | stop a silent run and fail with `driver_silent` after 16 minutes without a Driver event while no tool call or question is open, including while a command left in the background runs. Measure elapsed time with `CLOCK_UPTIME_RAW` | TRV-0.10, ARC-3.4, ARC-3.10 | Silence and awake-clock checks |
 | STE-0.11 | send a stop line to the Driver's control input when stopping a run. Check the deadline each loop and send `SIGKILL` if the process is still alive 16 seconds after the stop line or its `finished` event, whichever came first. Use `CLOCK_UPTIME_RAW` and end the Exchange after the Driver process has exited | TRV-0.11, ARC-3.10 | Stop, exit and awake-clock checks |
@@ -118,6 +131,7 @@ STE-0.1 through STE-0.14 use the corresponding Trivial requirements as their sta
 | STE-0.32 | Start the first actual phase row directly below the pinned prompt. Use the design system’s unlabeled First Light artwork between preceding activity and a final answer. Preserve the answer navigation target | Owner direction, STE-0.29, STE-0.31 | Birch transcript with tools and an answer |
 | STE-0.33 | Show Narrator’s compact activity label on collapsed shell calls in live and saved responses, with a generic shell label when extraction is unavailable. Keep the exact command available in expanded details | Owner direction, MYC-23.4 | Expanded and collapsed shell tool stories and installed renderer |
 | STE-0.34 | Paint each Exchange Phase only across its own transcript band. Use the theme canvas for unassigned space, including before the first band and below Finalization. Cmd-click opens a phase only within its band. Cmd+Enter on the reading area opens the recorded active or latest phase | Owner direction, STE-0.26, STE-0.29 | Completed Birch and dark-theme transcripts with visible space after Finalization |
+| STE-0.35 | Start one background Narrator job in Intake for the first accepted Exchange of an untitled chat. Use only its user message and cap its label at 12 words. Publish the label only while the chat remains untitled. Continue the Exchange independently of the job’s timing or outcome. | Owner direction, MYC-23.5 | Deferred title publication and concurrent manual rename |
 
 ## Interface
 
