@@ -89,6 +89,8 @@ The popup displays at most the first 1,000 Unicode characters of a long text val
 
 Live Elma opens the same popup from a Steady response with Cmd-click or Cmd+Enter. Intake findings, Driver content and the inference-end update carry their respective Intake, Execution and Finalization backgrounds. Cmd-click on a phase background selects that phase in the popup. The phase selector also reaches recorded phases with no transcript text. The renderer requests phase details through [the Bridge](../../../../arbol/backend/01-the-bridge.md#exchange-details) only while the popup is open. It reads new details during an open Exchange and makes a final read after settlement. Earlier Exchanges without details show an empty read state.
 
+In every phase, Exchange Details shows the selected Exchange’s recorded working folder in `publicExchange.workingDirectory` as a full path. This applies during the run and after reopening. If the Exchange has no recorded working folder, omit the field. The preview uses a fictional path.
+
 The Elma Storybook includes a separate comparison of 20 proposed phase backgrounds. Each option shows a geometric pattern and the existing tints across Intake, Planning, Execution and Finalization, with an enlarged fictional transcript for judging readability. The gallery preserves the design proposals. The selected Ripples treatment uses a static, low-contrast motif with phase-specific spacing across the normal chat canvas. Birch uses muted ochre for Intake, plum for Planning, pale honey for Execution and sage for Finalization, blended with the Birch canvas. The Execution tint and ripples are lighter than the Birch chat canvas. The ripples are brighter than the tint so they remain visible behind the transcript.
 
 ## Requirements
@@ -132,6 +134,7 @@ STE-0.1 through STE-0.14 use the corresponding Trivial requirements as their sta
 | STE-0.33 | Show Narrator’s compact activity label on collapsed shell calls in live and saved responses, with a generic shell label when extraction is unavailable. Keep the exact command available in expanded details | Owner direction, MYC-23.4 | Expanded and collapsed shell tool stories and installed renderer |
 | STE-0.34 | Paint each Exchange Phase only across its own transcript band. Use the theme canvas for unassigned space, including before the first band and below Finalization. Cmd-click opens a phase only within its band. Cmd+Enter on the reading area opens the recorded active or latest phase | Owner direction, STE-0.26, STE-0.29 | Completed Birch and dark-theme transcripts with visible space after Finalization |
 | STE-0.35 | Start one background Narrator job in Intake for the first accepted Exchange of an untitled chat. Use only its user message and cap its label at 12 words. Publish the label only while the chat remains untitled. Continue the Exchange independently of the job’s timing or outcome. | Owner direction, MYC-23.5 | Deferred title publication and concurrent manual rename |
+| STE-0.36 | Show the selected Exchange’s full recorded working folder as `publicExchange.workingDirectory` in Exchange Details during the run and after reopening. Omit the field when the folder was not recorded and use a fictional path in the preview | Owner direction, STE-0.19, STE-0.26 | Exchange Details preview and saved Exchange inspection |
 
 ## Interface
 
